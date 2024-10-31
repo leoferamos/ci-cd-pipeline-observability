@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 CLUSTER_NAME="devops-flask-cluster"
 REGION="us-east-1"
 NODE_TYPE="t2.micro"
