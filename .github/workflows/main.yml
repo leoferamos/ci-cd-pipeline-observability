@@ -37,4 +37,4 @@ jobs:
 
       - name: Deploy to EKS
         run: |
-          kubectl set image deployment/flask-app-deployment flask-app-container=${{ secrets.DOCKER_USERNAME }}/flask-app:latest
+          kubectl set image deployment/flask-app-deployment flask-app=${{ secrets.DOCKER_USERNAME }}/flask-app:latest
