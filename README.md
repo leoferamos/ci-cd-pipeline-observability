@@ -5,7 +5,7 @@
 [![Grafana](https://img.shields.io/badge/Grafana-v8.0.0-orange?logo=grafana&labelColor=white)](https://grafana.com/) 
 [![Prometheus](https://img.shields.io/badge/Prometheus-v2.28.0-red?style=flat&logo=prometheus&labelColor=white)](https://prometheus.io/)
 [![Docker](https://img.shields.io/badge/Docker-v20.10.7-blue?logo=docker&labelColor=white)](https://www.docker.com/)
-[![Flask](https://img.shields.io/badge/Flask-v3.0.3-blue?logo=flask&logoColor=black&labelColor=white)](https://flask.palletsprojects.com/)
+[![Flask](https://img.shields.io/badge/Flask-v3.0.3-gray?logo=flask&logoColor=black&labelColor=white)](https://flask.palletsprojects.com/)
 
 
 Este repositório contém uma aplicação Flask com um pipeline CI/CD implementado com GitHub Actions, Docker, Kubernetes (EKS) e um sistema de monitoramento usando Grafana e Prometheus. O projeto foi criado para automatizar o deploy na AWS e oferecer monitoramento em tempo real.
@@ -95,7 +95,7 @@ O objetivo deste projeto é demonstrar a utilização de um pipeline de CI/CD pa
  - AWS_SECRET_ACCESS_KEY: Sua chave secreta da AWS.
  - DOCKER_USERNAME: Seu nome de usuário no Docker Hub.
  - DOCKER_PASSWORD: Sua senha do Docker Hub.
- - #### *Tome cuidado e não exponha essas chaves em nenhum lugar*
+ - #### * Nota: Tome cuidado e não exponha essas chaves em nenhum lugar*
    ### Painel do Git Hub Secrets:
    
    ![Secrets](images/secretsgithub.png)
@@ -126,7 +126,7 @@ O objetivo deste projeto é demonstrar a utilização de um pipeline de CI/CD pa
    kubectl apply -f service_monitor.yaml
    ```
 
-   ### Acessar o Grafana e Configurar o Prometheus
+6. **Acessar o Grafana e Configurar o Prometheus**
 
    - Após instalar o Grafana no seu cluster, siga os passos abaixo para acessá-lo e adicionar o Prometheus como fonte de dados:
    - Para acessar o Grafana, primeiro, você precisará fazer o port-forward do serviço do Grafana para a sua máquina local. Execute o seguinte comando:
@@ -140,19 +140,23 @@ O objetivo deste projeto é demonstrar a utilização de um pipeline de CI/CD pa
    kubectl get secret --namespace monitoring grafana -o jsonpath='{.data.admin-password}' | base64 --decode
    ```
 
+   - No painel inicial do Grafana, clique em Configuration (ícone de engrenagem) no menu lateral.
+   - Selecione Data Sources.
+   - Clique em Add data source.
+   - Escolha Prometheus da lista de opções.
+
+   ![Data-source-Prometheus](images/Adicionando_Prometheus.png)
+  
+   - Na configuração do Prometheus, insira a URL do Prometheus, http://prometheus.monitoring.svc.cluster.local:9090.
+   - Vá para Create (ícone de "+") e selecione Dashboard.
+   - Clique em Save & Test para verificar a conexão.
+
+   ### Criar Painéis de Monitoramento
+   #### Agora que o Prometheus está configurado como fonte de dados, você pode criar painéis (dashboards) para visualizar as métricas da sua aplicação Flask:
+
+   - Vá para Create (ícone de "+") e selecione Dashboard.
+   - Adicione novos gráficos e selecione o Prometheus como a fonte de dados.
+   - Construa suas consultas para visualizar as métricas desejadas.
+     
+   ![dashboards](images/dashboards.png)
    
-
-
-
-   
-   
-
-   
-   
-   
-
-   
-
-
-
-
