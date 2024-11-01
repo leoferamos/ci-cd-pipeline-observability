@@ -51,18 +51,18 @@ O objetivo deste projeto é demonstrar a utilização de um pipeline de CI/CD pa
    docker push seu_usuario_docker/flask-app:tag
 3. **Implantar aplicação na AWS**
 
-   ### Certifique-se de que você está logado na AWS por meio do:
+   #### Certifique-se de que você está logado na AWS por meio do:
    ```bash
    aws configure
    ```
-   ### Para criar seu Cluster entre no repositório infra e execute:
+   #### Para criar seu Cluster entre no repositório infra e execute:
    ```bash
    ./create_cluster.sh
    ```
    ![Cluster-sendo-criado](images/script_criar_cluster.png)
    
-   ### Faça o deploy no seu Cluster:
-   #### Antes de executar o próximo Script, altere no deployment.yaml para seu nome de usuário.
+   #### Faça o deploy no seu Cluster:
+   ##### Antes de executar o próximo Script, altere no deployment.yaml para seu nome de usuário.
    ```bash
    ./deploy_app.sh
    ```
@@ -75,11 +75,11 @@ O objetivo deste projeto é demonstrar a utilização de um pipeline de CI/CD pa
    ```
    ![getpods_getsvc](images/getpods_getsvc.png)
 
-   ### Verifique no seu console da AWS
+   #### Verifique no seu console da AWS
 
    ![Console](images/EKS_criado.png)
 
-   ### A aplicação já pode ser acessada pelo link que você verificou no Load Balancer após o comando _kubectl get svc_ anteriormente:
+   #### A aplicação já pode ser acessada pelo link que você verificou no Load Balancer após o comando _kubectl get svc_ anteriormente:
    
    ![Navegador](images/browser.png) 
 
@@ -95,10 +95,21 @@ O objetivo deste projeto é demonstrar a utilização de um pipeline de CI/CD pa
  - AWS_SECRET_ACCESS_KEY: Sua chave secreta da AWS.
  - DOCKER_USERNAME: Seu nome de usuário no Docker Hub.
  - DOCKER_PASSWORD: Sua senha do Docker Hub.
-   *Tome cuidado e não exponha essas chaves em nenhum lugar*
+ - #### *Tome cuidado e não exponha essas chaves em nenhum lugar*
    ### Painel do Git Hub Secrets:
    
-   ![Secrets](images/secretsgithub.png).   
+   ![Secrets](images/secretsgithub.png)
+
+   ### Após qualquer alteração no código da sua aplicação no seu GitHub, a esteira será ativada e fará a alteração no seu Docker hub e EKS.
+   
+   ![ci-cd_completo](images/ci-cd_completo.png).
+
+   ### Implementação finalizada em segundos
+   ![deploy-em-segundos](images/tempo_cd.png).
+5.
+
+   
+   
    
 
    
