@@ -95,7 +95,7 @@ O objetivo deste projeto é demonstrar a utilização de um pipeline de CI/CD pa
  - AWS_SECRET_ACCESS_KEY: Sua chave secreta da AWS.
  - DOCKER_USERNAME: Seu nome de usuário no Docker Hub.
  - DOCKER_PASSWORD: Sua senha do Docker Hub.
- - #### * Nota: Tome cuidado e não exponha essas chaves em nenhum lugar*
+ - #### *Nota: Tome cuidado e não exponha essas chaves em nenhum lugar*
    ### Painel do Git Hub Secrets:
    
    ![Secrets](images/secretsgithub.png)
