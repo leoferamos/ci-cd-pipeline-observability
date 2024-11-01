@@ -62,7 +62,7 @@ O objetivo deste projeto é demonstrar a utilização de um pipeline de CI/CD pa
    ![Cluster-sendo-criado](images/script_criar_cluster.png)
    
    ### Faça o deploy no seu Cluster:
-   #### Antes de executar o próximo Script, altere o deployment.yaml para seu nome de usuário.
+   #### Antes de executar o próximo Script, altere no deployment.yaml para seu nome de usuário.
    ```bash
    ./deploy_app.sh
    ```
@@ -75,7 +75,30 @@ O objetivo deste projeto é demonstrar a utilização de um pipeline de CI/CD pa
    ```
    ![getpods_getsvc](images/getpods_getsvc.png)
 
+   ### Verifique no seu console da AWS
+
+   ![Console](images/EKS_criado.png)
+
+   ### A aplicação já pode ser acessada pelo link que você verificou no Load Balancer após o comando _kubectl get svc_ anteriormente:
    
+   ![Navegador](images/browser.png) 
+
+
+4. **Configurar CI/CD da sua aplicação**
+   ### Configurar GitHub Secrets
+
+ - Acesse o seu repositório no GitHub.
+ - Clique em Settings (Configurações) no menu superior.
+ - No menu lateral, clique em Secrets and variables e depois em Actions.
+ - Clique em New repository secret para adicionar cada um dos seguintes secrets:
+ - AWS_ACCESS_KEY_ID: Sua chave de acesso da AWS.
+ - AWS_SECRET_ACCESS_KEY: Sua chave secreta da AWS.
+ - DOCKER_USERNAME: Seu nome de usuário no Docker Hub.
+ - DOCKER_PASSWORD: Sua senha do Docker Hub.
+   *Tome cuidado e não exponha essas chaves em nenhum lugar*
+   ### Painel do Git Hub Secrets:
+   
+   ![Secrets](images/secretsgithub.png).   
    
 
    
