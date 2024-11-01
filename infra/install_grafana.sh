@@ -3,11 +3,16 @@
 # Adicionar repositórios
 echo "Adicionando repositórios do Helm..."
 helm repo add grafana https://grafana.github.io/helm-charts
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo update
 
 # Criar o namespace "monitoring"
 echo "Criando o namespace 'monitoring'..."
 kubectl create namespace monitoring || echo "Namespace 'monitoring' já existe."
+
+# Instalar o Prometheus
+echo "Instalando Prometheus..."
+helm install prometheus prometheus-community/prometheus --namespace monitoring
 
 # Instalar o Grafana
 echo "Instalando Grafana..."
