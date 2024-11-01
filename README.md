@@ -28,7 +28,7 @@ O objetivo deste projeto é demonstrar a utilização de um pipeline de CI/CD pa
 - Docker e Docker Hub.
 - AWS CLI configurado com as credenciais apropriadas.
 - Kubernetes CLI (kubectl) e eksctl.
-- GitHub Secrets configurados (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, DOCKER_USERNAME, DOCKER_PASSWORD).
+- Helm Instalado.
 
 ## Passo a Passo
 
@@ -102,11 +102,50 @@ O objetivo deste projeto é demonstrar a utilização de um pipeline de CI/CD pa
 
    ### Após qualquer alteração no código da sua aplicação no seu GitHub, a esteira será ativada e fará a alteração no seu Docker hub e EKS.
    
-   ![ci-cd_completo](images/ci-cd_completo.png).
+   ![ci-cd_completo](images/ci-cd_completo.png)
 
    ### Implementação finalizada em segundos
-   ![deploy-em-segundos](images/tempo_cd.png).
-5.
+   ![deploy-em-segundos](images/tempo_cd.png)
+   
+5. **Instalação Grafana e Prometheus**
+   ### No diretório infra, execute o comando para instalar o Grafana e o Prometheus no seu Cluster:
+   ```bash
+   ./install_grafana.sh
+   ```
+
+- Para o Prometheus coletar as métricas, você pode usar o comando de port forwarding do Kubernetes. Isso permite que você redirecione uma porta do seu cluster EKS para a sua máquina local.
+   ### Para realizar o Port Forwarding execute o seguinte comando, substituindo `<nome-do-pod>` pelo nome do pod que está executando sua aplicação Flask:
+   
+   ```bash
+   kubectl port-forward <nome-do-pod> 5000:5000
+   ```
+   ![port-forwarding](images/portforwardin_app.png)
+
+   ### Para configurar o Prometheus para coletar métricas do seu serviço Flask, execute o comando:
+   ```bash
+   kubectl apply -f service_monitor.yaml
+   ```
+
+   ### Acessar o Grafana e Configurar o Prometheus
+
+   - Após instalar o Grafana no seu cluster, siga os passos abaixo para acessá-lo e adicionar o Prometheus como fonte de dados:
+   - Para acessar o Grafana, primeiro, você precisará fazer o port-forward do serviço do Grafana para a sua máquina local. Execute o seguinte comando:
+     
+   ```bash
+   kubectl --namespace monitoring port-forward svc/grafana 3000:80
+   ```
+   #### Acesse o Grafana pelo link: ![Grafana](http://localhost:3000)
+   - O usuário padrão é admin e a senha pode ser obtida com o comando:
+     ```bash
+     kubectl get secret --namespace monitoring grafana -o jsonpath='{.data.admin-password}' | base64 --decode
+     ```
+
+   
+
+
+
+   
+   
 
    
    
