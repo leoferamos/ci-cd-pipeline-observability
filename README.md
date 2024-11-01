@@ -159,4 +159,7 @@ O objetivo deste projeto é demonstrar a utilização de um pipeline de CI/CD pa
    - Construa suas consultas para visualizar as métricas desejadas.
      
    ![dashboards](images/dashboards.png)
+
+   ## Conclusão:
+   Este projeto integra CI/CD e monitoramento em um ambiente AWS com Kubernetes, Docker, Grafana e Prometheus. A configuração automatizada permite deploys ágeis, enquanto o monitoramento oferece alta disponibilidade e estabilidade. O pipeline é uma base escalável que fortalece a confiabilidade da infraestrutura e suporta a evolução contínua da aplicação com observabilidade e automação.
    
