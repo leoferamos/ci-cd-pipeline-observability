@@ -11,18 +11,17 @@
 Este repositório contém uma aplicação Flask com um pipeline CI/CD implementado com GitHub Actions, Docker, Kubernetes (EKS) e um sistema de monitoramento usando Grafana e Prometheus. O projeto foi criado para automatizar o deploy na AWS e oferecer monitoramento em tempo real.
 
 ![grafana-aws-actions-prometheus-kubernetes](images/Background.png)
+
+## Descrição
+
+O objetivo deste projeto é demonstrar a utilização de um pipeline de CI/CD para uma aplicação Flask na AWS utilizando Docker, Kubernetes (EKS) e GitHub Actions. A aplicação principal é um serviço Flask que exibe uma mensagem de boas-vindas e está equipada com monitoramento em tempo real através de Grafana e Prometheus. O ambiente é configurado dentro de um EKS, com instâncias para a aplicação, Load Balancer (EBS), Grafana e Prometheus. Utilizamos o Github Actions para permitir implantações rápidas e escaláveis, onde cada vez que alterássemos o código, a Pipeline alterava a aplicação em poucos segundos, garantindo que a infraestrutura e os serviços estejam sempre disponíveis e monitorados de maneira eficiente.<p>
+
 ## Estrutura do Projeto
 
 - **app/**: Código fonte da aplicação Flask e Dockerfile.
 - **infra/**: Scripts Shell de infraestrutura para configurar o seu Cluster EKS, Prometheus, e Grafana.
 - **.github/workflows/**: Workflows do GitHub Actions para CI/CD.
 - **images/**: Prints e imagens para documentação.
-
-## Funcionalidades
-
-1. **CI/CD**: Automatização do build, push de imagem Docker, e deploy em EKS.
-2. **Monitoramento**: Configuração de métricas no Grafana, alimentadas pelo Prometheus.
-3. **Deploy**: Automatização de infraestrutura com AWS e Kubernetes.
 
 ## Pré-requisitos
 
