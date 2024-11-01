@@ -30,9 +30,56 @@ O objetivo deste projeto é demonstrar a utilização de um pipeline de CI/CD pa
 - Kubernetes CLI (kubectl) e eksctl.
 - GitHub Secrets configurados (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, DOCKER_USERNAME, DOCKER_PASSWORD).
 
-## Configuração
+## Passo a Passo
 
 1. **Clone o Repositório**
    ```bash
    git clone https://github.com/leoferamos/ci-cd-pipeline-observability.git
    cd ci-cd-pipeline-observability
+2. **Construir e Enviar a Imagem para o Docker Hub**
+   
+   #### Certifique-se de estar logado no Docker Hub:
+   ```bash
+   docker login
+   ```
+   #### Construa a imagem Docker a partir do Dockerfile:
+   ```bash
+   docker build -t seu_usuario_docker/flask-app:tag .
+   ```
+   #### Suba a imagem para o Docker Hub:
+   ```bash
+   docker push seu_usuario_docker/flask-app:tag
+3. **Implantar aplicação na AWS**
+
+   ### Certifique-se de que você está logado na AWS por meio do:
+   ```bash
+   aws configure
+   ```
+   ### Para criar seu Cluster entre no repositório infra e execute:
+   ```bash
+   ./create_cluster.sh
+   ```
+   ![Cluster-sendo-criado](images/script_criar_cluster.png)
+   
+   ### Faça o deploy no seu Cluster:
+   #### Antes de executar o próximo Script, altere o deployment.yaml para seu nome de usuário.
+   ```bash
+   ./deploy_app.sh
+   ```
+   ![deploy-cluster](images/script_deploy.png)
+
+   ### Verifique os seus pods e seu Load Balancer
+   ```bash
+   kubectl get pods
+   kubectl get svc
+   ```
+   ![getpods_getsvc](images/getpods_getsvc.png)
+
+   
+   
+
+   
+
+
+
+
