@@ -134,7 +134,7 @@ O objetivo deste projeto é demonstrar a utilização de um pipeline de CI/CD pa
    ```bash
    kubectl --namespace monitoring port-forward svc/grafana 3000:80
    ```
-   #### Acesse o Grafana pelo link: ![Grafana](http://localhost:3000)
+   #### Acesse o Grafana pelo link: <http://localhost:3000>
    - O usuário padrão é admin e a senha pode ser obtida com o comando:
      ```bash
      kubectl get secret --namespace monitoring grafana -o jsonpath='{.data.admin-password}' | base64 --decode
