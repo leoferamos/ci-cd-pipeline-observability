@@ -1,10 +1,10 @@
 # CI/CD Pipeline com Observabilidade
-[![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-v2.0.0-brightgreen?logo=githubactions&style=flat-square)](https://github.com/features/actions)
-[![Docker](https://img.shields.io/badge/Docker-v20.10.7-blue?logo=docker)](https://www.docker.com/) 
-[![Kubernetes](https://img.shields.io/badge/Kubernetes-v1.21.0-blue?logo=kubernetes)](https://kubernetes.io/) 
-[![Grafana](https://img.shields.io/badge/Grafana-v8.0.0-blue?logo=grafana)](https://grafana.com/) 
-[![Prometheus](https://img.shields.io/badge/Prometheus-v2.28.0-orange?logo=prometheus)](https://prometheus.io/) 
-[![Flask](https://img.shields.io/badge/Flask-v3.0.3-blue?logo=flask)](https://flask.palletsprojects.com/) 
+[![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-v2.0.0-blue?logo=githubactions&labelColor=white)](https://github.com/features/actions)
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-v1.21.0-blue?logo=kubernetes&labelColor=white)](https://kubernetes.io/) 
+[![Docker](https://img.shields.io/badge/Docker-v20.10.7-blue?logo=docker&labelColor=white)](https://www.docker.com/) 
+[![Grafana](https://img.shields.io/badge/Grafana-v8.0.0-orange?logo=grafana&labelColor=white)](https://grafana.com/) 
+[![Prometheus](https://img.shields.io/badge/Prometheus-v2.28.0-red?style=flat&logo=prometheus&labelColor=white)](https://prometheus.io/) 
+[![Flask](https://img.shields.io/badge/Flask-v3.0.3-blue?logo=flask&logoColor=black&labelColor=white)](https://flask.palletsprojects.com/) 
 
 
 
